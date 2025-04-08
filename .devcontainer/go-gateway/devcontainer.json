@@ -1,0 +1,13 @@
+{
+    "name": "Go: Gateway",
+    "dockerComposeFile": ["../../docker-compose.yml"],
+    "service": "go-app",
+	"workspaceFolder": "/workspace/go-gateway",
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "golang.go"
+            ]
+        }
+    }
+}
