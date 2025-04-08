@@ -1,26 +1,26 @@
 services:
-  go-app:
+  gateway-app:
     image: mcr.microsoft.com/devcontainers/go:1-1.24-bookworm
     command: sleep infinity
-    container_name: go-app
+    container_name: gateway-app
     volumes:
       - .:/workspace:cached
     ports:
       - "8080:8080"
     depends_on:
-      - go-db
+      - gateway-db
 
-  go-db:
+  gateway-db:
     image: postgres:17-alpine
-    container_name: go-db
+    container_name: gateway-db
     environment:
-      - POSTGRES_USER=postgres
-      - POSTGRES_PASSWORD=postgres
-      - POSTGRES_DB=go_db
+      - POSTGRES_USER=gateway_user
+      - POSTGRES_PASSWORD=gateway_pass
+      - POSTGRES_DB=gateway_db
     ports:
       - "5432:5432"
     volumes:
-      - go-db-data:/var/lib/postgresql/data
+      - gateway-db-data:/var/lib/postgresql/data
 
 volumes:
-  go-db-data:
+  gateway-db-data:
