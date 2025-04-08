@@ -15,3 +15,45 @@ Content-Type: application/json
 ### Get data from an account
 GET {{baseUrl}}/accounts
 X-API-Key: {{apiKey}}
+
+### Create a new invoice
+# @name createInvoice
+POST {{baseUrl}}/invoice
+Content-Type: application/json
+X-API-Key: {{apiKey}}
+
+{
+    "amount": 100.50,
+    "description": "Teste de fatura",
+    "payment_type": "credit_card",
+    "card_number": "4111111111111111",
+    "cvv": "123",
+    "expiry_month": 12,
+    "expiry_year": 2025,
+    "cardholder_name": "John Doe"
+}
+
+### Create a new invoice with high amount (> 10000)
+POST {{baseUrl}}/invoice
+Content-Type: application/json
+X-API-Key: {{apiKey}}
+
+{
+    "amount": 15000,
+    "description": "Teste de fatura com valor alto",
+    "payment_type": "credit_card",
+    "card_number": "4111111111111111",
+    "cvv": "123",
+    "expiry_month": 12,
+    "expiry_year": 2025,
+    "cardholder_name": "John Doe"
+} 
+
+### Get data from an invoice
+@invoiceId = {{createInvoice.response.body.id}}
+GET {{baseUrl}}/invoice/{{invoiceId}}
+X-API-Key: {{apiKey}}
+
+### List invoices from an account
+GET {{baseUrl}}/invoice
+X-API-Key: {{apiKey}}
