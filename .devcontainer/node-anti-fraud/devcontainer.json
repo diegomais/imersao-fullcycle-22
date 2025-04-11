@@ -1,0 +1,15 @@
+{
+    "name": "Node.js: Anti-Fraud",
+    "dockerComposeFile": ["../../docker-compose.yml"],
+    "service": "anti-fraud-app",
+	"workspaceFolder": "/workspace/node-anti-fraud",
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "esbenp.prettier-vscode",
+                "humao.rest-client",
+                "Prisma.prisma"
+            ]
+        }
+    }
+}
