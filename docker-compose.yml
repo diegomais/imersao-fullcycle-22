@@ -3,6 +3,9 @@ services:
     image: mcr.microsoft.com/devcontainers/typescript-node:1-22-bookworm
     command: sleep infinity
     container_name: anti-fraud-app
+    environment:
+      - DATABASE_URL=postgresql://anti_fraud_user:anti_fraud_pass@anti-fraud-db:5432/anti_fraud_db
+      - KAFKA_BOOTSTRAP_SERVER=kafka:29092
     volumes:
       - .:/workspace:cached
     ports:
